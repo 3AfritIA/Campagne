@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aubervilliers en Commun - App Militant</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <div class="logo-container">
+      <img src="logo.png" alt="Logo Aubervilliers en Commun" class="logo">
+    </div>
+    <h1>Aubervilliers en Commun</h1>
+    <p class="subtitle">Application de campagne 2026</p>
+  </header>
+
+  <div class="search-wrapper">
+    <div class="search-input-container">
+      <input id="search" type="text" placeholder="Rechercher un électeur (Nom, Prénom)..." autocomplete="off" />
+      <div class="search-icon">🔍</div>
+      <div id="loader" class="loader"></div>
+    </div>
+    <div id="suggestions"></div>
+  </div>
+
+  <div id="selected-contact"></div>
+
+  <div id="toast" class="toast"></div>
+
+  <script src="app.js"></script>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('./service-worker.js').then(() => {
+        console.log('Service Worker enregistré');
+      });
+    }
+  </script>
+</body>
+
+</html>
